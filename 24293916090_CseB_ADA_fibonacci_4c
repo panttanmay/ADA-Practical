@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+long long fib_array[MAX] = {0};
+
+long long fibo(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+
+    if (fib_array[n] != 0) return fib_array[n];
+
+    fib_array[n] = fibo(n - 1) + fibo(n - 2);
+    return fib_array[n];
+}
+
+int main() {
+    int n;
+    printf("Enter n: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci(%d) = %lld\n", n, fibo(n));
+    return 0;
+}
